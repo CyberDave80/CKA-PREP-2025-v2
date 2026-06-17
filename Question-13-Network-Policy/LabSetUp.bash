@@ -56,8 +56,9 @@ spec:
 EOF
 
 echo "Creating NetworkPolicy files..."
-mkdir -p /root/network-policies
-cd /root/network-policies
+WORKDIR="${WORKDIR:-$PWD/network-policies}"
+mkdir -p "$WORKDIR"
+cd "$WORKDIR"
 
 cat <<EOF > network-policy-1.yaml
 apiVersion: networking.k8s.io/v1
